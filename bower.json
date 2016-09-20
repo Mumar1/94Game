@@ -1,0 +1,17 @@
+{
+  "name": "Vanilla Express",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Umar"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
