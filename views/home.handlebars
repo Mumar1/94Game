@@ -1,4 +1,13 @@
-<div ng-app="">
- <p>Name : <input type="text" ng-model="name"></p>
- <h1>Hello \{{name}}</h1>
+<div ng-app="game">
+  <div ng-controller='gameCtrl'>
+    <h1>\{{questions.name}}</h1>
+    <p>Answer: <input type="text" ng-model="name"></p>
+    <button ng-click='checkAnswer(name)'>Submit</button>
+
+    <div ng-repeat='a in answers' ng-show='a.isGuessed'>
+      <canvas id="doughnut" class="chart chart-doughnut"
+        chart-data="a.data" chart-labels="a.label">
+      </canvas>
+    </div>
+  </div>
 </div>

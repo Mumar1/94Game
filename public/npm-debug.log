@@ -1,0 +1,107 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'bootstrap@3.',
+1 verbose cli   '--save' ]
+2 info using npm@3.10.7
+3 info using node@v4.4.5
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData bootstrap@3.
+8 silly fetchNamedPackageData bootstrap
+9 silly mapToRegistry name bootstrap
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'bootstrap',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'bootstrap',
+12 silly mapToRegistry   name: 'bootstrap',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+14 verbose get https://registry.npmjs.org/bootstrap not expired, no request
+15 silly fetchNamedPackageData No valid target from cache, forcing network
+16 verbose request uri https://registry.npmjs.org/bootstrap
+17 verbose request no auth needed
+18 info attempt registry request try #1 at 12:44:46 PM
+19 verbose request id 9b02e4b13a49a559
+20 http request GET https://registry.npmjs.org/bootstrap
+21 http 200 https://registry.npmjs.org/bootstrap
+22 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+22 verbose headers   etag: '"7AEMBX91BTW58FH3EJB8KK7PO"',
+22 verbose headers   'content-type': 'application/json',
+22 verbose headers   'content-encoding': 'gzip',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   'content-length': '10033',
+22 verbose headers   'accept-ranges': 'bytes',
+22 verbose headers   date: 'Thu, 22 Sep 2016 11:44:47 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   age: '57',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-lcy1120-LCY',
+22 verbose headers   'x-cache': 'HIT',
+22 verbose headers   'x-cache-hits': '3',
+22 verbose headers   'x-timer': 'S1474544687.166678,VS0,VE0',
+22 verbose headers   vary: 'Accept-Encoding' }
+23 silly get cb [ 200,
+23 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly get     etag: '"7AEMBX91BTW58FH3EJB8KK7PO"',
+23 silly get     'content-type': 'application/json',
+23 silly get     'content-encoding': 'gzip',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     'content-length': '10033',
+23 silly get     'accept-ranges': 'bytes',
+23 silly get     date: 'Thu, 22 Sep 2016 11:44:47 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     age: '57',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-lcy1120-LCY',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '3',
+23 silly get     'x-timer': 'S1474544687.166678,VS0,VE0',
+23 silly get     vary: 'Accept-Encoding' } ]
+24 verbose get saving bootstrap to /Users/muhammadumar/.npm/registry.npmjs.org/bootstrap/.cache.json
+25 verbose correctMkdir /Users/muhammadumar/.npm correctMkdir not in flight; initializing
+26 silly fetchPackageMetaData Error: No compatible version found: bootstrap@3.
+26 silly fetchPackageMetaData Valid install targets:
+26 silly fetchPackageMetaData 4.0.0-alpha.4, 4.0.0-alpha.3, 4.0.0-alpha.2, 3.3.7, 3.3.6, 3.3.5, 3.3.4, 3.3.2, 3.3.1, 3.3.0, 3.2.0, 3.1.1, 0.0.2, 0.0.1
+26 silly fetchPackageMetaData
+26 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/local/lib/node_modules/npm/lib/fetch-package-metadata.js:178:16)
+26 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+26 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+26 silly fetchPackageMetaData     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+26 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:233:15
+26 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:82:15)
+26 silly fetchPackageMetaData  error for bootstrap@3. [Error: No compatible version found: bootstrap@3.
+26 silly fetchPackageMetaData Valid install targets:
+26 silly fetchPackageMetaData 4.0.0-alpha.4, 4.0.0-alpha.3, 4.0.0-alpha.2, 3.3.7, 3.3.6, 3.3.5, 3.3.4, 3.3.2, 3.3.1, 3.3.0, 3.2.0, 3.1.1, 0.0.2, 0.0.1
+26 silly fetchPackageMetaData ]
+27 silly rollbackFailedOptional Starting
+28 silly rollbackFailedOptional Finishing
+29 silly runTopLevelLifecycles Finishing
+30 silly install printInstalled
+31 verbose stack Error: No compatible version found: bootstrap@3.
+31 verbose stack Valid install targets:
+31 verbose stack 4.0.0-alpha.4, 4.0.0-alpha.3, 4.0.0-alpha.2, 3.3.7, 3.3.6, 3.3.5, 3.3.4, 3.3.2, 3.3.1, 3.3.0, 3.2.0, 3.1.1, 0.0.2, 0.0.1
+31 verbose stack
+31 verbose stack     at pickVersionFromRegistryDocument (/usr/local/lib/node_modules/npm/lib/fetch-package-metadata.js:178:16)
+31 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+31 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+31 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+31 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:233:15
+31 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+32 verbose cwd /Users/muhammadumar/Documents/Workspace/94Projects/94Game/public
+33 error Darwin 15.6.0
+34 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "bootstrap@3." "--save"
+35 error node v4.4.5
+36 error npm  v3.10.7
+37 error No compatible version found: bootstrap@3.
+37 error Valid install targets:
+37 error 4.0.0-alpha.4, 4.0.0-alpha.3, 4.0.0-alpha.2, 3.3.7, 3.3.6, 3.3.5, 3.3.4, 3.3.2, 3.3.1, 3.3.0, 3.2.0, 3.1.1, 0.0.2, 0.0.1
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]

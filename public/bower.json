@@ -1,0 +1,20 @@
+{
+  "name": "94Game",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Muhammad Umar <m.u12@hotmail.co.uk>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Mumar1/94Game",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
