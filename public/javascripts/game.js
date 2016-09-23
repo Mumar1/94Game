@@ -3,15 +3,15 @@
 */
 var app = angular.module('game', ["chart.js"]);
 
-app.controller('gameCtrl', ['$scope', function($scope) {
+app.service('gameService', function(){
 
-  $scope.questions = {
+  this.questions = {
     id: 1,
     name: "Name programming languagas",
     complete: false
   }
 
-  $scope.answers = [{
+  this.answers = [{
       id: 1,
       questionId: 1,
       key: "Csharp",
@@ -32,24 +32,36 @@ app.controller('gameCtrl', ['$scope', function($scope) {
       isGuessed: false,
       hint: "It uses the cup as its logo",
       percentage: 34
-    }];
+  }];
 
-  $scope.checkAnswer = function(answer){
-      for (var i=0; i < $scope.answers.length; i++){
-        if (answer.toString().toLowerCase() == $scope.answers[i].key.toString().toLowerCase()){
-          $scope.answers[i].isGuessed = true;
-        }
+  /*Check answer is correct*/
+  /*Update data*/
+  this.check = function(answer){
+    for (var i=0; i < this.answers.length; i++){
+      if (answer.toString().toLowerCase() == this.answers[i].key.toString().toLowerCase()){
+        this.answers[i].isGuessed = true;
       }
     }
+  }
 
-  $scope.answers = $scope.answers.map((answer,index)=>{
+  this.answers = this.answers.map((answer,index)=>{
     return Object.assign({},answer,{
       label: [answer.key, ""],
       data: [answer.percentage, 100-answer.percentage]
     })
   })
 
-}]);
+});
+
+app.controller('gameCtrl', function($scope, gameService) {
+    $scope.questions = gameService.questions;
+    $scope.answers = gameService.answers;
+
+    $scope.checkAnswer = function(answer){
+      gameService.check(answer);
+    }
+});
+
 
 /*
 * Mongoose Database connection
