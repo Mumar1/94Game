@@ -1,64 +1,46 @@
 /*
 * Angular app module
 */
-var app = angular.module('game', ["chart.js"]);
+var app = angular.module('game', ['ngResource', "chart.js"]);
 
-app.service('gameService', function(){
+app.service('gameService1', [ '$resource', function($resource){
 
-  this.questions = {
-    id: 1,
-    name: "Name programming languagas",
-    complete: false
-  }
+  this.currQuestion = {};
+  this.currAnswers = [];
+  this.guessed = 0;
+  this.nextLevel = false;
 
-  this.answers = [{
-      id: 1,
-      questionId: 1,
-      key: "Csharp",
-      isGuessed: false,
-      hint: "It is sharp language",
-      percentage: 25
-    }, {
-      id: 2,
-      questionId: 2,
-      key: "Javascript",
-      isGuessed: false,
-      hint: "It is used to write front end applications",
-      percentage: 35
-    }, {
-      id: 3,
-      questionId: 3,
-      key: "Java",
-      isGuessed: false,
-      hint: "It uses the cup as its logo",
-      percentage: 34
-  }];
-
-  /*Check answer is correct*/
-  /*Update data*/
-  this.check = function(answer){
-    for (var i=0; i < this.answers.length; i++){
-      if (answer.toString().toLowerCase() == this.answers[i].key.toString().toLowerCase()){
-        this.answers[i].isGuessed = true;
-      }
-    }
-  }
-
-  this.answers = this.answers.map((answer,index)=>{
-    return Object.assign({},answer,{
-      label: [answer.key, ""],
-      data: [answer.percentage, 100-answer.percentage]
+  /*Get Current Question*/
+  /*Return quesiton*/
+  this.loadGame = function(){
+    var resource = $resource('/api/database');
+    var gameLevels;
+    resource.query(function (Levels){
+      gameLevels = Levels;
     })
-  })
+    return gameLevels;
+  }
 
-});
+}]);
 
-app.controller('gameCtrl', function($scope, gameService) {
-    $scope.questions = gameService.questions;
-    $scope.answers = gameService.answers;
+
+/*Controller*/
+/*Reponsible for passing data between views and service*/
+app.controller('gameCtrl', function($scope, gameService, gameService1) {
+
+    var data = gameService1.loadGame();
+
+    $scope.question = gameService.getCurrentQuestion();
+    $scope.answers = gameService.getCurrentAnswers($scope.question.id);
 
     $scope.checkAnswer = function(answer){
-      gameService.check(answer);
+      $scope.nextLevel = gameService.check(answer);
+    }
+
+    $scope.startNextLevel = function(){
+      $scope.question = gameService.getCurrentQuestion();
+      $scope.answers = gameService.getCurrentAnswers($scope.question.id);
+      $scope.nextLevel = false;
     }
 });
 

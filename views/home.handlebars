@@ -1,8 +1,9 @@
 <div ng-app="game">
   <div ng-controller='gameCtrl'>
-    <h1>\{{questions.name}}</h1>
+    <h1>\{{question.name}}</h1>
     <p>Answer: <input type="text" ng-model="name"></p>
-    <button ng-click='checkAnswer(name)'>Submit</button>
+    <button ng-click='checkAnswer(name)' ng-hide='nextLevel'>Submit</button>
+    <button ng-click='startNextLevel()' ng-show='nextLevel'>Next</button>
 
     <div ng-repeat='a in answers' ng-show='a.isGuessed'>
       <canvas id="doughnut" class="chart chart-doughnut"

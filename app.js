@@ -14,6 +14,7 @@ app.set('view engine', 'handlebars');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var database = require('./routes/database')
 
 
 // uncomment after placing your favicon in /public
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/api/database', database);
 // app.use('/users', users);
 //
 // catch 404 and forward to error handler
