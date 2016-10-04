@@ -1,6 +1,6 @@
 /*Service*/
 /*Contain logic for the app*/
-app.service('gameService', function(){
+app.service('dummyService', function(){
 
   this.currQuestion = {};
   this.currAnswers = [];

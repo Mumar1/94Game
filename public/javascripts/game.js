@@ -3,7 +3,7 @@
 */
 var app = angular.module('game', ['ngResource', "chart.js"]);
 
-app.service('gameService1', [ '$resource', function($resource){
+app.service('gameService', [ '$resource', '$http',function($resource, $http){
 
   this.currQuestion = {};
   this.currAnswers = [];
@@ -13,12 +13,10 @@ app.service('gameService1', [ '$resource', function($resource){
   /*Get Current Question*/
   /*Return quesiton*/
   this.loadGame = function(){
-    var resource = $resource('/api/database');
-    var gameLevels;
-    resource.query(function (Levels){
-      gameLevels = Levels;
-    })
-    return gameLevels;
+    //$http.get('/api/database').success(function(data) {
+    //  alert(data[0].question);
+      //alert(data);
+    //});
   }
 
 }]);
@@ -26,20 +24,20 @@ app.service('gameService1', [ '$resource', function($resource){
 
 /*Controller*/
 /*Reponsible for passing data between views and service*/
-app.controller('gameCtrl', function($scope, gameService, gameService1) {
+app.controller('gameCtrl', function($scope, dummyService, gameService) {
 
-    var data = gameService1.loadGame();
+    var data = gameService.loadGame();
 
-    $scope.question = gameService.getCurrentQuestion();
-    $scope.answers = gameService.getCurrentAnswers($scope.question.id);
+    $scope.question = dummyService.getCurrentQuestion();
+    $scope.answers = dummyService.getCurrentAnswers($scope.question.id);
 
     $scope.checkAnswer = function(answer){
-      $scope.nextLevel = gameService.check(answer);
+      $scope.nextLevel = dummyService.check(answer);
     }
 
     $scope.startNextLevel = function(){
-      $scope.question = gameService.getCurrentQuestion();
-      $scope.answers = gameService.getCurrentAnswers($scope.question.id);
+      $scope.question = dummyService.getCurrentQuestion();
+      $scope.answers = dummyService.getCurrentAnswers($scope.question.id);
       $scope.nextLevel = false;
     }
 });
